@@ -475,8 +475,9 @@ main{position:relative;z-index:1;}
   padding:0;transition:opacity 0.2s;
 }
 .pay-policy-link:hover{opacity:0.8;}
-.pp-list li{font-family:'Rajdhani',sans-serif;font-size:0.95rem;color:var(--text2);line-height:1.7;padding-left:30px;position:relative;counter-increment:pp-counter;}
-.pp-list li::before{content:counter(pp-counter) ".";position:absolute;left:0;color:var(--neon);font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:700;top:2px;}
+.pp-list{list-style:decimal;padding-left:22px;display:flex;flex-direction:column;gap:14px;}
+.pp-list li{font-family:'Rajdhani',sans-serif;font-size:0.95rem;color:var(--text2);line-height:1.7;padding-left:6px;}
+.pp-list li::before{display:none;}
 footer{
   position:relative;z-index:1;
   text-align:center;padding:40px 24px;
@@ -1643,9 +1644,9 @@ function openPolicyTab(type) {
     '.tc-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;}',
     '.tc-list li{font-family:Rajdhani,sans-serif;font-size:0.95rem;color:var(--text2);line-height:1.65;padding-left:16px;position:relative;}',
     '.tc-list li::before{content:"\2014";position:absolute;left:0;color:var(--neon);font-size:0.8rem;}',
-    '.pp-list{list-style:none;display:flex;flex-direction:column;gap:14px;padding:0;counter-reset:pp-counter;}',
-    '.pp-list li{font-family:Rajdhani,sans-serif;font-size:0.95rem;color:var(--text2);line-height:1.7;padding-left:30px;position:relative;counter-increment:pp-counter;}',
-    '.pp-list li::before{content:counter(pp-counter) ".";position:absolute;left:0;color:var(--neon);font-family:JetBrains Mono,monospace;font-size:0.78rem;font-weight:700;top:2px;}',
+    '.pp-list{list-style:decimal;padding-left:22px;display:flex;flex-direction:column;gap:14px;}',
+    '.pp-list li{font-family:Rajdhani,sans-serif;font-size:0.95rem;color:var(--text2);line-height:1.7;padding-left:6px;}',
+    '.pp-list li::before{display:none;}',
     'a{color:var(--neon);text-decoration:none;}a:hover{text-decoration:underline;}',
     '.form-label{display:block;font-size:0.72rem;font-weight:600;color:var(--text2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;font-family:JetBrains Mono,monospace;}',
     '.form-input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:Rajdhani,sans-serif;font-size:1rem;padding:10px 13px;transition:all 0.2s;outline:none;}',
