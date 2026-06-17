@@ -1415,7 +1415,7 @@ footer span{color:var(--neon);}
     <div class="cs-icon" id="cs-modal-icon">🚀</div>
     <div class="cs-title" id="cs-modal-title">Coming Soon</div>
     <div class="cs-desc" id="cs-modal-desc">The Teams Dashboard is currently in development and will be available in the next update. Stay tuned for powerful team analytics and ripple tracking tools.</div>
-    <button class="btn-outline" style="margin-top:22px;width:100%;" onclick="closeComingSoon()">Got It</button>
+    <button class="btn-outline" id="cs-modal-btn" style="margin-top:22px;" onclick="closeComingSoon()">Got It</button>
   </div>
 </div>
 
@@ -1650,8 +1650,10 @@ function closeVtPopup() {
 }
 
 function openComingSoon(title, desc) {
-  document.getElementById('cs-modal-title').textContent = title || 'Coming Soon';
+  const titleEl = document.getElementById('cs-modal-title');
+  titleEl.textContent = title || 'Coming Soon';
   document.getElementById('cs-modal-desc').textContent = desc || 'The Teams Dashboard is currently in development and will be available in the next update. Stay tuned for powerful team analytics and ripple tracking tools.';
+  titleEl.style.color = title ? '#00d4ff' : '';
   document.getElementById('coming-soon-modal').classList.add('open');
 }
 function closeComingSoon() { document.getElementById('coming-soon-modal').classList.remove('open'); }
