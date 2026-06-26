@@ -82,6 +82,13 @@ nav{
   color:#000!important;border-color:transparent!important;font-weight:700;
 }
 .nav-cta:hover{opacity:0.9;box-shadow:0 0 20px rgba(0,212,255,0.4);background:linear-gradient(135deg,var(--neon2),var(--neon))!important;}
+.nav-contact-btn{
+  background:transparent;border:1px solid rgba(123,47,255,0.5);cursor:pointer;
+  font-family:'Rajdhani',sans-serif;font-size:0.78rem;font-weight:600;
+  color:var(--neon3);letter-spacing:1.5px;text-transform:uppercase;
+  padding:6px 14px;border-radius:4px;transition:all 0.2s;
+}
+.nav-contact-btn:hover{color:#fff;border-color:var(--neon3);background:rgba(123,47,255,0.15);box-shadow:0 0 16px rgba(123,47,255,0.3);}
 
 /* ===== ONE-PAGE LAYOUT ===== */
 main{position:relative;z-index:1;}
@@ -2115,5 +2122,34 @@ document.addEventListener('keydown', function(e) {
     </div>
   </div>
 </div>
+<!-- ===== LEAD CONNECTOR CHAT WIDGET ===== -->
+<script src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="6a3eb717a3d7dca497267b08"
+  data-source="WEB_USER">
+</script>
+<script>
+function openChatWidget(){
+  /* Try to click the LeadConnector chat bubble if it exists */
+  var btn = document.querySelector(
+    'leadconnector-chat-widget, [id*="leadconnector"], [class*="leadconnector"], ' +
+    '[id*="lc-chat"], .lc-chat-bubble, #lc-chat-widget-btn, ' +
+    'iframe[src*="leadconnector"]'
+  );
+  if(btn){
+    btn.click();
+  } else {
+    /* Fallback: dispatch a custom event the widget listens for */
+    window.dispatchEvent(new CustomEvent('lc-chat-open'));
+    /* Also try querying inside shadow DOM roots */
+    document.querySelectorAll('*').forEach(function(el){
+      if(el.shadowRoot){
+        var inner = el.shadowRoot.querySelector('button, [role="button"]');
+        if(inner) inner.click();
+      }
+    });
+  }
+}
+</script>
 </body>
 </html>
